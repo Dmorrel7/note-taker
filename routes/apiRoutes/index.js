@@ -1,31 +1,47 @@
 const router = require("express").Router()
 const fs = require("fs");
-const createNewNote = require("../../lib/notes");
+const {createNewNote, deleteNote, getNotes} = require("../../lib/notes");
+const { v4: uuidv4 } = require('uuid');
 
 
-const notes = require("../../db/db");
 
-router.get("/notes", (req, res) => 
-{
-    console.log(notes)
 
-    let results = notes;
-    if (req.query) 
-    {
-      res.json(results);
+router.get("/notes", (req, res) => {
+  console.log('get notes')
+    getNotes().then(results => {
+      
+      if (req.query) {
+        res.json(results);
     }
+    })
 
 });
 
-router.post("/notes", (req, res) => 
-{
+router.post("/notes", (req, res) => {
+  getNotes().then(results => {
+    
+    req.body.id = uuidv4()
 
-    req.body.id = notes.length.toString();
+    const newNote = createNewNote(req.body, results)
+    
+    res.json(newNote)
+  })
 
-    const newNote = createNewNote(req.body, notes)
+})
 
-   res.json(newNote)
+//bonus delete function
+router.delete("/notes/:id", (req, res)=> {
+  getNotes().then(results => {
+    const id = req.params.id
+  
+  const newNote = deleteNote(id, results)
+  
+  res.json(newNote)
+
+  })
+  
+  
 })
 
 
-module.exports = router 
+module.exports = router

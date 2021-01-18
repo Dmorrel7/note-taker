@@ -1,9 +1,22 @@
-{
-    "notes": 
-    [
-        {
-            "title": "Some Title",
-            "text": " Some Text"
-        }
-    ]
-}
+[
+  {
+    "title": "sdfsdf",
+    "text": "sdfsdf",
+    "id": "424fa94d-ed33-4146-a413-bbd4a6d35ddd"
+  },
+  {
+    "title": "fghfghfgh",
+    "text": "fghfgh",
+    "id": "bdba03be-c4d0-4c28-8853-3f0084ae7326"
+  },
+  {
+    "title": "dfgdfgdfgdg",
+    "text": "dfgdfgdfgdgf",
+    "id": "adf5affd-6e11-4876-81cf-ab0b14665c55"
+  },
+  {
+    "title": "dfgdfgdfg",
+    "text": "dfgdfgdfgdgdgfd",
+    "id": "34a136a0-2e75-4b9e-a111-fafcf75b0461"
+  }
+]
